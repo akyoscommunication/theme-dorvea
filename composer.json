@@ -1,9 +1,9 @@
 {
-  "name": "akyos/theme-access-dorvea-viticole",
+  "name": "akyos/theme-dorvea",
   "type": "wordpress-theme",
   "license": "MIT",
-  "description": "Thème parent Access access-dorvea-viticole (Sage / Acorn / Vite)",
-  "homepage": "https://github.com/akyoscommunication/theme-access-dorvea-viticole",
+  "description": "Thème parent Access Dorvea (Sage / Acorn / Vite)",
+  "homepage": "https://github.com/akyoscommunication/theme-dorvea",
   "authors": [
     {
       "name": "Akyos Communication",
@@ -19,8 +19,8 @@
     "access"
   ],
   "support": {
-    "issues": "https://github.com/akyoscommunication/theme-access-dorvea-viticole/issues",
-    "source": "https://github.com/akyoscommunication/theme-access-dorvea-viticole"
+    "issues": "https://github.com/akyoscommunication/theme-dorvea/issues",
+    "source": "https://github.com/akyoscommunication/theme-dorvea"
   },
   "autoload": {
     "psr-4": {
