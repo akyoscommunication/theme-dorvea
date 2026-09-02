@@ -1,0 +1,10 @@
+.s-title {
+  > .container {
+    > .c-title {
+      //@extend %fs-42;
+
+      width: fit-content;
+      font-weight: 700;
+    }
+  }
+}

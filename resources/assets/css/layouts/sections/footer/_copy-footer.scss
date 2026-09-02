@@ -1,0 +1,59 @@
+.copy-footer {
+  background-color: color(primary);
+  color: color(text-primary);
+  padding-bottom: rem(23);
+  padding-top: rem(76);
+
+  a {
+    @extend .animation-underline;
+  }
+
+  > .container {
+    @include flex(row, wrap, space-between, center);
+
+    @include lessThan($tablet) {
+      flex-direction: column;
+      gap: rem(21);
+    }
+
+    @include lessThan($mobileXs) {
+      align-items: start;
+    }
+
+    .menu {
+      @include flex(row, wrap, space-between, center);
+      @include undoListStyles;
+
+      li {
+        @include flex(row, nowrap, center, center);
+
+
+        @include moreThan($mobileXs) {
+          &:after {
+            content: "";
+            display: block;
+            width: rem(1);
+            height: rem(16);
+            background-color: color(text-primary);
+            margin: 0 rem(16);
+          }
+        }
+
+        &:last-child:after {
+          content: none;
+        }
+      }
+
+      @include lessThan($tablet) {
+        justify-content: center;
+        column-gap: rem(10);
+      }
+
+      @include lessThan($mobileXs) {
+        flex-direction: column;
+        gap: rem(10);
+        align-items: start;
+      }
+    }
+  }
+}

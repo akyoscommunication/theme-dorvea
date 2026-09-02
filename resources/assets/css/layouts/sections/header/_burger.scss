@@ -1,0 +1,243 @@
+$dropdown-icon-mobile: $assets-path + '/icons/dropdown-icon-mobile.svg';
+
+#burger {
+  @include flex(row, nowrap, flex-end, center);
+
+  position: relative;
+  height: 50px;
+  z-index: 9;
+  padding: rem(20);
+  gap: rem(20);
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  span {
+    @include burger(38px, 2px, 7px, var(--aky-color-text-primary));
+  }
+}
+
+.header-nav__mobile {
+
+  &.is-active {
+    .mobile-menu {
+      mask-size: 100% 100%;
+      pointer-events: all;
+    }
+
+    #burger {
+      span {
+        @include burger-to-cross(#fff);
+      }
+    }
+  }
+
+  .mobile-menu {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100vw;
+    height: 100%;
+    background-color: color(primary, 0.98);
+    color: color(text-primary);
+
+    mask-image: linear-gradient(-90deg, #fff 100%, transparent 100%);
+    mask-size: 0 300%;
+    mask-repeat: no-repeat;
+    mask-position: right;
+    transition-duration: .5s;
+    transition-timing-function: $cubic-transition;
+    transition-property: mask-size;
+    pointer-events: none;
+
+    .c-socials {
+      justify-content: center;
+      padding-top: rem(60);
+      svg {
+        filter: brightness(0)invert(1);
+      }
+    }
+
+  }
+
+  .mobile-menu-container {
+    margin: 0 auto;
+    max-width: $container;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: rem(36);    
+
+    @include lessThan($mobile){
+      grid-template-columns: 1fr;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .menu-menu-mobile-container {
+    @include lessThan($mobile){
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+
+  .mobile-menu__endpoint {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transform: translateY(10px);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
+    
+    &.open {
+      transform: translateY(0);
+      opacity: 1;
+      padding-top: rem(25);
+      width: 100%;
+
+      .close {
+        display: none;
+
+        @include lessThan($mobile){
+          display: flex;
+        }
+      }
+    }
+
+    & .close {
+      display: none;
+    }
+
+    @include lessThan($mobile){
+      position: absolute;
+      bottom: 0;
+      background: color(primary);
+      padding-left: 15px;
+      padding-right: 15px;
+
+      & > [endpoint] > * {
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+    }
+  }
+
+  .sub-menu {
+    @include undoListStyles;
+
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    gap: rem(16);
+
+    &.open {
+      display: grid;
+
+      @include lessThan($mobileXs){
+        grid-template-columns: 1fr;
+      }
+    }
+
+    li {
+      text-align: left;
+      
+      a {
+        font-family: $font-family-title;
+        text-transform: uppercase;
+        font-size: rem(20);
+        display: inline-block;
+        padding: rem(10) rem(0) rem(5) rem(0);
+
+        @include lessThan($mobile){
+          font-size: rem(16);
+        }
+      }
+    }
+  }
+
+  .menu {
+    @include undoListStyles;
+    @include flex(column, nowrap, flex-start, flex-start);
+
+    gap: rem(36);
+
+    @media (max-height: 750px) and (min-height: 650px) {
+      gap: rem(16);
+    }
+
+    @include lessThan($mobileXs){
+      padding-left: 0;
+    }
+
+    li {
+      &.menu-item-has-children {
+        position: relative;
+
+        &.open {
+          &:before {
+            transform: translateY(-50%) scaleX(1);
+          }
+        }
+
+        &:before {
+          content: '';
+          background-color: color(text-primary);
+          width: rem(80);
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%) scaleX(0);
+          transition: transform 0.3s ease-in-out;
+          transform-origin: left;
+          height: rem(1);
+          right: 0;
+
+          @include lessThan($mobile){
+            display: none;
+          }
+        }
+      }
+
+      &.current-menu-item {
+        a {
+        }
+      }
+
+      a {
+        @extend %fs-58;
+
+        font-family: $font-family-title;
+        opacity: 0;
+
+        // heihght less than 750px
+        @media (max-height: 750px) and (min-height: 650px) {
+          font-size: rem(40);
+        }
+      }
+
+      &:not(&:has(.sub-menu)) {
+        a {
+          @extend .animation-underline;
+        }
+      }
+
+      &:has(.sub-menu) {
+        position: relative;
+        overflow: hidden;
+
+        > a {
+          &:after {
+            content: url($dropdown-icon-mobile);
+            margin-left: rem(10);
+          }
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,21 @@
+body {
+  @extend %fs-16;
+
+  overflow-x: hidden;
+  max-width: 100vw;
+  color: color(text-background_body);
+  background-color: color(background_body);
+  background-image: url($assets-path + '/images/bg-texture.png');
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body a:where(:not(.wp-element-button)) {
+  text-decoration: none;
+}
+

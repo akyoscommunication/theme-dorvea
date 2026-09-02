@@ -1,0 +1,40 @@
+.s-numbers {
+  background-color: color(primary);
+  color: color(text-primary);
+
+  padding: clamp-calc(40px, 120px) 0;
+
+  > .container {
+    > .c-title {
+      @extend %fs-33;
+
+      width: fit-content;
+      margin: auto;
+    }
+  }
+
+  &__text {
+    text-align: center;
+  }
+
+  &-list {
+    @include flex(row, wrap, center, start);
+
+    margin-top: rem(64);
+    padding: rem(16);
+
+    .c-number {
+      flex: 1;
+    }
+
+    @include lessThan($mobile) {
+
+    }
+  }
+
+  .btn {
+    width: fit-content;
+    margin-inline: auto;
+    margin-top: rem(64);
+  }
+}

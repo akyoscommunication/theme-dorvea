@@ -1,0 +1,70 @@
+.forminator-ui {
+  .forminator-row {
+    input, textarea {
+      background: transparent !important;
+      border-radius: rem(4) !important;
+      border: rem(1) solid color(primary) !important;
+      padding: rem(16) !important;
+    }
+
+    .forminator-field {
+      position: relative;
+
+      label {
+        position: absolute;
+        font-size: rem(13) !important;
+        top: rem(-12);
+        left: rem(20);
+        background: color(background_body);
+        padding-inline: rem(4);
+        font-weight: 400 !important;
+      }
+
+      .btn {
+        @extend %fs-16;
+
+        padding: rem(10) rem(16) !important;
+        min-width: rem(197) !important;
+        font-weight: 700 !important;
+        border: rem(1) solid color(primary) !important;
+        transition: 0.4s $cubic-transition !important;
+
+        &:before {
+          transform: translateY(101%);
+        }
+
+        &:hover {
+          box-shadow: none !important;
+          background-color: color(primary) !important;
+
+          &:before {
+            transform: translateY(0);
+          }
+        }
+      }
+    }
+
+    .checkbox-form {
+      .forminator-label {
+        display: none !important;
+      }
+
+      label {
+        position: initial;
+        top: initial;
+        left: initial;
+      }
+
+      .forminator-checkbox__wrapper {
+        align-items: center !important;
+
+        .forminator-checkbox__label {
+          p {
+            font-size: rem(16) !important;
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+.c-pagination {
+  .screen-reader-text {
+    display: none;
+  }
+
+  .nav-links {
+    @include flex(row, nowrap, center, center);
+
+    gap: rem(8);
+
+    .page-numbers {
+      @include flex(row, nowrap, center, center);
+
+      width: rem(32);
+      height: rem(32);
+      font-family: "Nohemi", sans-serif;
+      transition: all 0.3s $cubic-transition;
+
+
+      &:hover {
+        background-color: color(secondary);
+        color: color(text-secondary);
+      }
+
+      &.current {
+        background-color: color(secondary);
+        color: color(text-secondary);
+      }
+
+      &.next, &.prev {
+        width: fit-content;
+        color: color(light);
+        background: transparent;
+      }
+
+      &.prev {
+        transform: rotate(225deg);
+        margin-right: rem(24);
+
+        &:hover {
+          margin-right: rem(29);
+        }
+      }
+
+      &.next {
+        transform: rotate(45deg);
+        margin-left: rem(24);
+
+        &:hover {
+          margin-left: rem(29);
+        }
+      }
+    }
+  }
+}

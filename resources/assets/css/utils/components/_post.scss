@@ -1,0 +1,68 @@
+.c-post {
+  @include flex(row, nowrap, center, stretch);
+
+  gap: rem(20);
+  position: relative;
+
+  @include lessThan($tablet) {
+    flex-direction: column !important;
+  }
+
+  @include lessThan($tablet) {
+    width: 100%;
+  }
+
+  &__permalink {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+  }
+
+  .c-image {
+    height: 100%;
+    width: 100%;
+
+    &::before {
+      @extend %imageOverlay;
+
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+
+    > * {
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &-content {
+    color: color(text-primary);
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    bottom: rem(24);
+    padding: 0 rem(24);
+
+    &-body {
+      margin-top: rem(16);
+
+      .c-title {
+        @extend %fs-26;
+
+        margin-bottom: rem(16);
+      }
+
+      &__excerpt {
+        max-width: rem(453);
+      }
+    }
+  }
+
+  &:hover {
+    .c-image {
+      img {
+        transform: scale(1.05);
+      }
+    }
+  }
+}

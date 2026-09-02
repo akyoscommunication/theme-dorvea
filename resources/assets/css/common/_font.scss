@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital@0;1&family=Cinzel:wght@400..900&display=swap');
+
+:root {
+  font-size: $html-font-size;
+  font-family: $font-family;
+}
+
+%fs {
+  &-74 {
+    font-size: clamp-calc(45px, 74px);
+    line-height: clamp-calc(69px, 79px);
+  }
+
+  &-58 {
+    font-size: clamp-calc(37px, 58px);
+    line-height: clamp-calc(55px, 72px);
+  }
+
+  &-33 {
+    font-size: clamp-calc(30px, 33px);
+    line-height: clamp-calc(31px, 40px);
+  }
+
+  &-26 {
+    font-size: clamp-calc(21px, 26px);
+    line-height: clamp-calc(25px, 32px);
+  }
+
+  &-20 {
+    font-size: clamp-calc(18px, 20px);
+    line-height: clamp-calc(19px, 25px);
+  }
+
+  &-16 {
+    font-size: rem(16);
+  }
+
+  &-13 {
+    font-size: rem(13);
+  }
+}

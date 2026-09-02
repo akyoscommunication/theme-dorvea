@@ -1,0 +1,76 @@
+.s-services {
+  position: relative;
+  padding: clamp-calc(40px, 120px) 0;
+
+  > .container {
+    > .c-title {
+      width: fit-content;
+      margin: auto;
+      margin-bottom: rem(24);
+    }
+
+    .s-services {
+      &__text {
+        max-width: rem(634);
+        margin: auto;
+      }
+
+      &-list {
+        position: relative;
+        z-index: 1;
+        margin-top: rem(32);
+
+        &-wrapper {
+          @include flex(row, wrap, center, center);
+
+          margin-top: rem(48);
+          grid-gap: rem(20);
+
+          @include lessThan($tablet) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-row-gap: rem(60);
+          }
+
+          @include lessThan($mobileXs) {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        .slider--services {
+          .swiper-buttons {
+            @include flex(row, nowrap, center, center);
+
+            gap: rem(45);
+            margin-top: rem(48);
+
+            @include lessThan($mobile) {
+              justify-content: center;
+            }
+
+            .swiper-button-prev, .swiper-button-next {
+              position: initial;
+              width: initial;
+              height: initial;
+              margin-top: initial;
+
+              svg {
+                color: color(text-primary);
+              }
+
+              &:after {
+                content: none;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .btn {
+      margin-top: rem(50);
+      width: fit-content;
+      margin-inline: auto;
+    }
+  }
+}

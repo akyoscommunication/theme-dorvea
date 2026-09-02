@@ -1,0 +1,74 @@
+.c-filter {
+
+  padding-bottom: rem(82);
+  overflow-y: hidden;
+  width: 100%;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: rem(1);
+    background-color: color(text-primary);
+
+    @include lessThan($mobile) {
+      display: none;
+    }
+  }
+
+  @include lessThan($mobile) {
+    overflow-x: scroll;
+  }
+
+  &-buttons {
+    @include flex(row, nowrap, center, center);
+    gap: rem(20);
+
+    @include lessThan($mobile) {
+      justify-content: start;
+    }
+
+    .btn {
+      @extend %fs-16;
+
+      padding: rem(9) rem(20);
+      max-width: initial;
+      font-weight: 400;
+
+      @include lessThan($mobile) {
+        min-width: rem(150);
+        text-align: center;
+      }
+
+      span {
+        transition: $default-transition;
+      }
+
+      &:hover {
+        span {
+          color: color(text-primary, 0.7);
+        }
+      }
+
+      &--active {
+        position: relative;
+
+        &:after {
+          @include horizontalCenter();
+
+          bottom: rem(-23);
+          content: '';
+          position: absolute;
+          background-color: color(text-primary);
+          display: block;
+          width: rem(18);
+          height: rem(18);
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}

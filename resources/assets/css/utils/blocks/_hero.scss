@@ -1,0 +1,85 @@
+.s-hero {
+  position: relative;
+  color: color(text-primary);
+
+  .c-image {
+    height: clamp-calc(700px, 858px);
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      animation: zoom-out 1.5s $cubic-transition;
+    }
+  }
+
+  &-overlay {
+    @include flex(row, nowrap, center, center);
+
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    &-content {
+      @include flex(column, nowrap, center, center);
+
+      height: 100%;
+      max-width: rem(619);
+      width: 100%;
+      color: color(light);
+      position: relative;
+
+      .c-title {
+        text-align: center;
+      }
+
+      &__text {
+        text-align: center;
+        margin-top: rem(44);
+
+        @include lessThan($mobile) {
+          padding: 0 rem(10);
+        }
+
+        a {
+          text-decoration: underline;
+        }
+      }
+
+      &__scroll {
+        position: absolute;
+
+        bottom: rem(50);
+        margin-top: rem(50);
+      }
+
+      .btn {
+        margin-top: rem(64);
+      }
+    }
+  }
+}
+
+.archive, .contact, .single, .blog, .mentions-legales, .cookies, .politique-de-confidentialite {
+  .s-hero {
+
+    .c-image {
+      height: clamp-calc(500px, 562px);
+    }
+
+    &-overlay {
+      &-content {
+        @extend .container;
+
+        align-items: start;
+       &__scroll {
+         display: none;
+       }
+        &__text {
+          max-width: rem(450);
+          text-align: left;
+        }
+      }
+    }
+  }
+}

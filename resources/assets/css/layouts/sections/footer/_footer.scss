@@ -1,0 +1,108 @@
+@import "sub-footer";
+@import "copy-footer";
+
+footer {
+  color: color(text-background_body);
+}
+
+.footer {
+  background-color: color(primary);
+  color: color(text-primary);
+  padding-top: rem(76);
+
+  &-columns {
+    display: grid;
+
+    grid-template-columns: 2fr 3fr 2fr 3fr 2fr;
+    grid-template-areas: "menu infos horaires blank logo";
+    grid-gap: rem(20);
+
+    @include lessThan($mobile) {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: "menu infos" "horaires logo";
+      grid-row-gap: rem(40);
+      align-items: start;
+    }
+
+    @include lessThan($mobileXs) {
+      grid-template-columns: 1fr;
+      grid-template-areas: "menu" "infos" "horaires" "logo";
+      grid-row-gap: rem(70);
+    }
+
+    &-item {
+
+      .c-title {
+        @extend %fs-20;
+
+        text-transform: uppercase;
+        padding-bottom: rem(24);
+      }
+
+      &:nth-child(1) {
+        grid-area: menu;
+      }
+
+      &:nth-child(2) {
+        grid-area: infos;
+
+        .footer-infos {
+          @include flex(column, nowrap, start, start);
+          gap: rem(24);
+        }
+
+        .c-socials {
+          padding-top: rem(24);
+
+          &__item {
+
+            &:hover {
+              .btn--social {
+                border: 1px solid color(text-primary);
+                background-color: color(primary) !important;
+                color: color(text-primary) !important;
+              }
+            }
+
+            .btn {
+              @include flex(row, nowrap, center, center);
+
+              color: color(primary);
+              padding: 0;
+              width: rem(34);
+              height: rem(34);
+              background-color: color(text-primary);
+              border-radius: 50%;
+              transition: $default-transition;
+            }
+          }
+        }
+      }
+
+      &:nth-child(3) {
+        grid-area: horaires;
+      }
+
+      &:nth-child(4) {
+        grid-area: logo;
+
+        img {
+          @include moreThan($mobile) {
+            margin-left: auto;
+          }
+        }
+      }
+    }
+
+    .menu {
+      @include undoListStyles;
+      @include flex(column, nowrap, start, start);
+
+      gap: rem(24);
+    }
+
+    a:not(.btn) {
+      @extend .animation-underline;
+    }
+  }
+}

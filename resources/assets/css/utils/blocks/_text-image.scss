@@ -1,0 +1,111 @@
+.s-text-image {
+
+  padding: clamp-calc(40px, 120px) 0;
+
+  > .container {
+    display: grid;
+    grid-template-columns: 5fr 2fr 5fr;
+    grid-template-areas: "text both image";
+    grid-gap: rem(20);
+
+    &:has(> div:only-child) {
+      display: block;
+    }
+
+    &.reverse {
+      .s-text-image-content {
+        grid-area: both / both / image / image;
+      }
+      .s-text-image-image {
+        grid-area: text / text / both / both;
+      }
+    }
+
+    @include lessThan($mobile) {
+      @include flex(column, nowrap, center, stretch);
+    }
+  }
+
+  &-content {
+    @include flex(column, nowrap, center, start);
+
+    grid-area: text / text / both / both;
+    z-index: 2;
+
+    background: color(primary);
+    color: color(text-primary);
+
+    @at-root .s-text-image.bg-color-primary & {
+      background: color(secondary);
+      color: color(text-secondary);
+    }
+
+    height: fit-content;
+    margin-block: auto;
+    padding: rem(24);
+
+    .s-text-image {
+      &__text {
+        margin: rem(32) 0;
+      }
+    }
+  }
+
+  &-image {
+    grid-area: both / both / image / image;
+    z-index: 1;
+
+    .c-image {
+      height: clamp-calc(400px, 760px);
+      display: block;
+
+      img {
+        height: clamp-calc(400px, 760px);
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .swiper {
+      &-buttons {
+        @include flex(row, nowrap, end, center);
+        gap: rem(21);
+        padding-top: rem(38);
+
+        @at-root .s-text-image.bg-color-primary & {
+          justify-content: start;
+        }
+
+        .swiper {
+          &-button {
+            &-prev, &-next {
+              position: initial;
+              color: color(text-background_body);
+              border: rem(1) solid color(text-background_body);
+              width: rem(40);
+              height: rem(40);
+              padding: rem(7);
+              border-radius: 50%;
+              aspect-ratio: 1;
+              transition: 0.2s $cubic-transition;
+
+              @at-root .s-text-image.bg-color-primary & {
+                color: color(text-primary);
+                border: rem(1) solid color(text-primary);
+              }
+
+              &:after {
+                content: none;
+              }
+
+              &:hover {
+                background: color(text-background_body);
+                color: color(background_body) !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+.s-sidebar {
+  position: fixed;
+  top: 35vh;
+  right: 0;
+  z-index: 99;
+
+  @include lessThan($mobile) {
+    display: none;
+  }
+
+  .c-socials {
+    @include flex(column, nowrap, center, end);
+
+    gap: rem(14);
+    height: 100%;
+
+    li {
+      a {
+        @include flex(row, nowrap, center, center);
+
+        border-top-left-radius: rem(32);
+        border-bottom-left-radius: rem(32);
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+
+        padding: 0;
+        width: rem(50);
+        height: rem(34);
+        background: color(background_body);
+        transition: width 0.3s $cubic-transition;
+        box-shadow: $default-box-shadow;
+
+        &:hover {
+          width: rem(55);
+        }
+      }
+    }
+  }
+}

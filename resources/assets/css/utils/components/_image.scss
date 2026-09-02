@@ -1,0 +1,9 @@
+.c-image {
+  display: block;
+  overflow: hidden;
+  > img {
+    height: 100%;
+    display: block;
+    transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+}

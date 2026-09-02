@@ -1,0 +1,77 @@
+.s-team {
+  position: relative;
+
+  &-grid {
+    display: grid;
+    grid-template-columns: 9fr 3fr;
+    grid-column-gap: rem(32);
+    grid-template-areas: "slider text";
+    align-items: start;
+    padding: clamp-calc(40px, 88px) rem(15) clamp-calc(40px, 124px) rem(15);
+
+    @include lessThan($mobile) {
+      @include flex(row, wrap, start, center);
+      row-gap: rem(40);
+    }
+  }
+
+  > .container {
+    > .c-title {
+      width: fit-content;
+    }
+
+    .s-team {
+
+      &-text {
+        grid-area: text;
+      }
+
+      &-list {
+        grid-area: slider;
+        position: relative;
+        min-width: 0;
+
+        &-wrapper {
+          @include flex(row, wrap, center, center);
+          grid-gap: rem(24);
+        }
+
+        .slider--team {
+          .swiper-buttons {
+            @include flex(row, nowrap, center, center);
+
+            gap: rem(48);
+            margin-top: rem(46);
+
+            .swiper-button-prev, .swiper-button-next {
+              position: initial;
+              width: initial;
+              height: initial;
+              margin-top: initial;
+
+              svg {
+                width: rem(28);
+                color: color(text-primary);
+              }
+
+              &:after {
+                content: none;
+              }
+            }
+          }
+        }
+
+        .c-card {
+          .c-image {
+            max-height: rem(392);
+          }
+
+          &-body {
+            margin-top: rem(24);
+            gap: rem(24);
+          }
+        }
+      }
+    }
+  }
+}

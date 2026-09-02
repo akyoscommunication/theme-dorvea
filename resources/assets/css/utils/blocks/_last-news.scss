@@ -1,0 +1,74 @@
+.s-last-news {
+  padding: rem(80) 0;
+
+  > .container {
+    > .c-title {
+      @extend %fs-33;
+
+      width: fit-content;
+      margin: auto;
+    }
+  }
+
+  &__text {
+    margin-top: rem(8);
+  }
+
+  &-posts {
+    margin-top: rem(64);
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(6, 150px);
+    grid-gap: rem(22);
+
+    @include lessThan($mobile) {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(3, 300px);
+    }
+
+    @include lessThan($mobileXs) {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(5, 250px);
+    }
+
+    .c-post {
+      grid-column: span 6;
+
+      @include lessThan($mobile) {
+        grid-column: span 1 !important;
+        grid-row: auto !important;
+      }
+
+      &:nth-child(1) {
+        grid-column: span 6;
+        grid-row: span 4;
+      }
+
+      &:nth-child(2) {
+        grid-column: span 6;
+        grid-row: span 3;
+      }
+
+      &:nth-child(3) {
+        grid-column: span 6;
+        grid-row: span 3;
+      }
+
+      &:nth-child(4) {
+        grid-column: span 3;
+        grid-row: span 2;
+      }
+
+      &:nth-child(5) {
+        grid-column: span 3;
+        grid-row: span 2;
+      }
+    }
+  }
+
+  &-btn {
+    width: fit-content;
+    margin-inline: auto;
+    margin-top: rem(48);
+  }
+}

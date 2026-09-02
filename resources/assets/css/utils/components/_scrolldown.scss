@@ -1,0 +1,30 @@
+@keyframes scrolldown {
+  0% {
+    transform: translateY(10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+[animation-scrolldown] {
+  cursor: pointer;
+
+  svg {
+    animation-name: scrolldown;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: $cubic-transition;
+    animation-direction: alternate-reverse;
+
+    path {
+      animation-name: scrolldown;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-timing-function: $cubic-transition;
+      animation-direction: alternate-reverse;
+    }
+  }
+}

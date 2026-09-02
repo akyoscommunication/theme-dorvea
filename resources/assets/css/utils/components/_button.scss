@@ -1,0 +1,76 @@
+.btn {
+  position: relative;
+  padding: rem(9) rem(47);
+  display: block;
+
+  span {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__line {
+    position: absolute;
+    inset: 0;
+    border: rem(1) solid color(secondary);
+    transition: 0.5s $cubic-transition;
+
+  }
+
+  &__line2 {
+    position: absolute;
+    left: rem(0);
+    top: rem(0);
+    bottom: rem(0);
+    border: rem(1) solid color(secondary);
+    right: rem(7);
+    transform: translate(-4px, -4px);
+    transition: 0.2s $cubic-transition;
+  }
+
+  &:hover {
+    span {
+      color: color(text-secondary);
+    }
+
+    .btn__line {
+      right: rem(7);
+      transform: translate(-5px, -5px);
+    }
+
+    .btn__line2 {
+      inset: 0;
+      transform: translate(0, 0);
+
+      background: color(secondary);
+    }
+  }
+
+  &--secondary {
+    color: inherit;
+    .btn__line {
+      border-color: color(secondary);
+    }
+    .btn__line2 {
+      border-color: color(secondary);
+    }
+  }
+
+  &--primary {
+    color: color(primary);
+    .btn__line {
+      border-color: color(primary);
+    }
+    .btn__line2 {
+      border-color: color(primary);
+    }
+    &:hover {
+      span {
+        color: color(text-primary);
+      }
+      .btn__line2 {
+        background: color(primary);
+      }
+    }
+  }
+}
+

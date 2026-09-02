@@ -1,0 +1,43 @@
+@import "sections/header/header";
+@import "sections/footer/footer";
+@import "sections/sidebar/sidebar";
+@import "archive";
+@import "form";
+@import "single";
+@import "sections/header/burger";
+@import "404";
+
+.container {
+  margin: 0 auto;
+  max-width: $container;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  &--sm {
+    margin: 0 auto;
+    max-width: $container-sm;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+[style*="--pt"] {
+  padding-top: var(--pt) !important;
+}
+
+[style*="--pb"] {
+  padding-bottom: var(--pb) !important;
+}
+
+@include lessThan($mobile) {
+
+  [style*="--pt:"], {
+    padding-top: 100px !important;
+  }
+
+  [style*="--pb:"], {
+    padding-bottom: 100px !important;
+  }
+}

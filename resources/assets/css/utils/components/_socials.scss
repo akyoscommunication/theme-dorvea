@@ -1,0 +1,10 @@
+.c-socials {
+  @include undoListStyles;
+  @include flex(row, nowrap, start, center);
+
+  gap: rem(20);
+
+  &__item {
+    @include flex(row, nowrap, center, center);
+  }
+}

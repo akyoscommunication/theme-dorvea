@@ -1,0 +1,33 @@
+.c-number {
+  @include flex(column, nowrap, space-between, center);
+
+  gap: rem(21);
+  text-align: center;
+  font-family: $font-family-title;
+
+  &__line {
+    height: rem(153);
+    width: rem(1);
+    background: $grey;
+
+    &:last-child {
+      display: none;
+    }
+
+    @include lessThan($tablet) {
+      width: 100%;
+      height: rem(1);
+      margin: rem(20) 0;
+    }
+  }
+
+  &__title {
+    @extend %fs-58;
+  }
+
+  &__text {
+    @extend %fs-20;
+
+    padding: 0 rem(10);
+  }
+}

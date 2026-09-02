@@ -1,0 +1,67 @@
+.s-form {
+
+  padding: clamp-calc(40px, 80px) 0;
+
+  > .container {
+    display: grid;
+    grid-template-columns:6fr 1fr 5fr;
+    grid-template-areas: "form blank image";
+    grid-gap: rem(20);
+
+    @at-root .s-form &.reverse {
+      grid-template-areas: "image blank form";
+      grid-template-columns: 5fr 1fr 6fr;
+    }
+
+    @include lessThan($tablet) {
+      @include flex(column, nowrap, center, stretch);
+    }
+
+    &.content-image {
+      .s-form-wrapper {
+        &:nth-child(1) {
+          grid-area: form;
+        }
+
+        &:nth-child(2) {
+          grid-area: image;
+
+          .c-image {
+            @include lessThan($tablet) {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-infos {
+    @include flex(row, wrap, space-between, start);
+
+    padding-bottom: rem(31);
+
+    @include lessThan($mobile) {
+      gap: rem(20);
+      justify-content: center;
+      text-align: center;
+    }
+
+    a {
+      @include flex(row, nowrap, center, center);
+
+      gap: rem(8);
+
+      svg {
+        color: color(primary);
+      }
+    }
+
+  }
+}
+
+.contact {
+  .sub-footer {
+    display: none !important;
+  }
+}

@@ -1,0 +1,29 @@
+/** FONTS **/
+$font-family: "ABeeZee", sans-serif;
+$font-family-title: "Cinzel", sans-serif;
+$html-font-size: 16px;
+$line-height: 1;
+
+$padding-inline-start: 66;
+$padding-inline-end: 54;
+
+/** RESPONSIVE **/
+$header-height: 40px;
+$header-height-mb: 10px;
+$laptop: 1440px;
+$tablet: 1025px;
+$mobile: 769px;
+$mobileXs: 481px;
+
+/** CONTAINER **/
+$container: 1310px;
+$container-archive: 1096px;
+$container-sm: 1108px;
+
+$default-transition: .3s ease;
+$default-box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1), 0 5px 5px rgba(0, 0, 0, 0.1);
+
+$cubic-transition: cubic-bezier(.32, .94, .6, 1);
+
+$threshold: 55%;
+$assets-path: '/app/themes/akyos-sage/resources/assets';

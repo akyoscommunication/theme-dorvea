@@ -1,0 +1,79 @@
+.s-text-image-inline {
+  position: relative;
+  padding: rem(40) 0;
+  overflow-x: hidden;
+
+  &__background {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  > .container {
+    display: grid;
+    grid-template-columns: 5fr 1fr 6fr;
+    grid-template-areas: "text blank image";
+    grid-gap: rem(20);
+
+    &:has(> div:only-child) {
+      display: block;
+    }
+
+    &.reverse {
+      grid-template-columns: 6fr 1fr 5fr;
+      grid-template-areas: "image blank text";
+    }
+
+    @include lessThan($mobile) {
+      @include flex(column, nowrap, center, stretch);
+    }
+  }
+
+  &-content {
+    @include flex(column, nowrap, end, start);
+
+    grid-area: text;
+
+    &:not(&:has(.c-image)) {
+      justify-content: center;
+    }
+
+    .s-text-image-inline__text {
+      margin: rem(32) 0;
+    }
+
+    .c-image {
+      margin-top: rem(90);
+    }
+  }
+
+  &-image {
+    grid-area: image;
+    margin-right: calc(100% - 50vw);
+
+    @at-root .s-text-image-inline .reverse & {
+      margin-right: 0;
+      margin-left: calc(100% - 50vw);
+    }
+
+    @include lessThan($mobile) {
+      margin-right: 0 !important;
+      margin-left: 0 !important;
+    }
+
+      .c-image {
+      height: clamp-calc(400px, 856px);
+
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+

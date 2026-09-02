@@ -1,0 +1,9 @@
+.c-articles {
+  @include gridMd(3, 22);
+  @include gridSm(2, 22);
+  @include gridXs(1, 22);
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: rem(22);
+}

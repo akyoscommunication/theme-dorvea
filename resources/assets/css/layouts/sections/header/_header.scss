@@ -1,0 +1,53 @@
+$dropdown-icon: $assets-path + "/icons/dropdown.svg";
+$menu-color: color(primary);
+
+.header-wrap {
+  grid-area: header;
+  position: fixed;
+  top: 0;
+  padding-block: rem(12) rem(13);
+  width: 100%;
+  z-index: 999;
+  transition: background 0.3s $cubic-transition;
+  color: color(text-primary);
+
+  .header {
+    @include flex(row, nowrap, space-between, center);
+
+    &-brand {
+      z-index: 2;
+
+      .c-image {
+        max-width: rem(90);
+      }
+    }
+
+    &-nav {
+    }
+  }
+
+  &.scrolled {
+    background: color(primary);
+
+    .btn {
+      &--menu {
+        border-color: color(background_body);
+
+        a {
+          color: color(background_body) !important;
+        }
+
+        &:hover {
+          a {
+            color: color(primary) !important;
+          }
+        }
+
+
+        &:before {
+          background-color: color(background_body);
+        }
+      }
+    }
+  }
+}
